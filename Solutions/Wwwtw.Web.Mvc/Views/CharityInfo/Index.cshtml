@@ -1,0 +1,39 @@
+﻿@using Wwwtw.Web.Mvc
+@model IEnumerable<Wwwtw.Domain.CharityInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink((CharityInfoController c) => c.CreateOrUpdate(0),"Create New")
+</p>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CharityName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "CreateOrUpdate", new { id=item.Id })
+        </td>
+        <td>
+        @using (Html.BeginForm("Delete", "Products")) {
+            @Html.Hidden("id", item.Id)
+            <input type="submit" value="Delete" />
+            @Html.AntiForgeryToken()
+        }
+        </td>
+    </tr>
+}
+</table>
