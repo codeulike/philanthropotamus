@@ -5,6 +5,7 @@
 
     public class CharityInfo : Entity
     {
+        [DomainSignature]
         public virtual int CharityNumber { get; set; }
 
         public virtual string CharityName { get; set; }
