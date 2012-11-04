@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="CharityInfoRepositoryTests.cs" />
     <Compile Include="CharityInfoTests.cs" />
+    <Compile Include="MatchTasksRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceLocatorInitializer.cs" />
     <Compile Include="Wwwtw.Data\NHibernateMaps\MappingIntegrationTests.cs" />
@@ -106,6 +107,10 @@
     <ProjectReference Include="..\Wwwtw.Infrastructure\Wwwtw.Infrastructure.csproj">
       <Project>{9544D94B-9B6E-4B61-8A09-88382205BF86}</Project>
       <Name>Wwwtw.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wwwtw.Tasks\Wwwtw.Tasks.csproj">
+      <Project>{c9aac14b-e695-4508-83b7-acb8fc5a7284}</Project>
+      <Name>Wwwtw.Tasks</Name>
     </ProjectReference>
     <ProjectReference Include="..\Wwwtw.Web.Mvc\Wwwtw.Web.Mvc.csproj">
       <Project>{6F92992D-8D75-4BA8-87C3-146581235054}</Project>

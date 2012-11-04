@@ -1,4 +1,7 @@
-﻿@{
+﻿@using Wwwtw.Web.Mvc
+@model List<Wwwtw.Domain.CharityInfo>
+
+@{
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -11,14 +14,17 @@
     
     <div class="optionwrap">
         <div class="border1"><div class="border2 glass">
-            <p class="question">Something</p>
+            <p class="question">@Model[0].ActivitiesSentenceCase
+            </p>
      
         </div></div>
   
     </div>
     <div class="optionwrap">
         <div class="border1"><div class="border2 glass">
-            <p class="question">Something Else</p>
+            <p class="question">@Model[1].ActivitiesSentenceCase
+
+            </p>
      
         </div></div>
   

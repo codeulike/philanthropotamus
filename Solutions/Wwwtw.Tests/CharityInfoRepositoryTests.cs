@@ -6,6 +6,7 @@ using System.Text;
 using SharpArch.NHibernate;
 using NUnit.Framework;
 using Wwwtw.Domain;
+using Wwwtw.Infrastructure;
 
 namespace Wwwtw.Tests
 {
@@ -36,5 +37,7 @@ namespace Wwwtw.Tests
 
 
         }
+
+        
     }
 }
