@@ -27,5 +27,12 @@ namespace Wwwtw.Web.Mvc.Controllers
             return View(pair);
         }
 
+        [Transaction]
+        public JsonResult Vote(int winnerId, int loserId)
+        {
+            matchTasks.MatchResult(winnerId, loserId);
+            return Json(new { done = "ok" }, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

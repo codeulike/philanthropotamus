@@ -6,27 +6,130 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-  <div class="border1"><div class="border2 glass">
-    <p class="question">Which of these Charitable Aims sounds more beneficial?</p>
+  <div class="border1"><div class="border2 glasstrans">
+    <p id="headerq" class="question">Which of these Charitable Aims sounds more beneficial?</p>
+      <p id="againlink" class="question" style="display:none;"><a href=".">Again?</a></p>
      
     </div></div>
    <div class="spacer"></div>
     
-    <div class="optionwrap">
-        <div class="border1"><div class="border2 glass">
+    <div class="matchoptionwrap">
+        <div id="wraptop" class="border1 white"><div id="optiontop" class="border2 glass matchoptionarea">
+            @Html.Hidden("topid", Model[0].Id)
             <p class="question">@Model[0].ActivitiesSentenceCase
             </p>
-     
+            
+        </div></div>
+        <div id="aftertop" class="border1 white" style="display:none;"><div class="border2 glass">
+            <p class="question">@Model[0].CharityNameTitleCase
+            </p>
+            @if(!string.IsNullOrEmpty(Model[0].Website)){
+                <p class="question"><a href="@Model[0].Website">@Model[0].Website
+                </a>
+            </p>
+            }
+             @if(!string.IsNullOrEmpty(Model[0].TwitterAccount)){
+                <p class="question"><a href="https://twitter.com/@Model[0].TwitterAccount">Twitter: @@@Model[0].TwitterAccount
+                </a>
+            </p>
+            }
+            <p class="question"><a href="http://www.justgiving.com/charity/search?query=@Model[0].CharityNumber">Donate to them on JustGiving ...</a></p>
+            
         </div></div>
   
     </div>
-    <div class="optionwrap">
-        <div class="border1"><div class="border2 glass">
+    <div class="matchoptionwrap">
+        <div id="wrapbottom" class="border1 white"><div id="optionbottom" class="border2 glass matchoptionarea">
+            @Html.Hidden("bottomid", Model[1].Id)
             <p class="question">@Model[1].ActivitiesSentenceCase
 
             </p>
      
         </div></div>
+        <div id="afterbottom" class="border1 white"  style="display:none;"><div class="border2 glass">
+            
+            <p class="question">@Model[1].CharityNameTitleCase
+
+            </p>
+            @if(!string.IsNullOrEmpty(Model[1].Website)){
+                <p class="question"><a href="@Model[1].Website">@Model[1].Website
+                </a>
+            </p>
+            }
+             @if(!string.IsNullOrEmpty(Model[1].TwitterAccount)){
+                <p class="question"><a href="https://twitter.com/@Model[0].TwitterAccount">Twitter: @@@Model[1].TwitterAccount
+                </a>
+            </p>
+            }
+            <p class="question"><a href="http://www.justgiving.com/charity/search?query=@Model[1].CharityNumber">Donate to them on JustGiving ...</a></p>
+        </div></div>
   
     </div>
 <div class="spacer"></div>
+
+<script type="text/javascript">
+
+    var that = this;
+
+    $(function () {
+        $(".matchoptionarea").mouseenter(function () {
+            $(this).addClass("highlight");
+        }).mouseleave(function () {
+            $(this).removeClass("highlight");
+        });
+
+        $("#optiontop").click(function () {
+            var win = $("#topid").val();
+            var lose = $("#bottomid").val();
+            Vote(win, lose, true);
+        });
+
+        $("#optionbottom").click(function () {
+            var win = $("#bottomid").val();
+            var lose = $("#topid").val();
+            Vote(win, lose, false);
+        });
+    });
+
+    function Vote(win, lose, topfirst) {
+        
+        $.getJSON("/Home/Vote", {
+            winnerId: win,
+            loserId: lose
+            },
+            function (data) {
+                // dont really need it
+            }
+        );
+
+        var hidefirst;
+        var showfirst;
+        var hidesecond;
+        var showsecond;
+
+        if (topfirst) {
+            hidefirst = "#wraptop";
+            showfirst = "#aftertop";
+            hidesecond = "#wrapbottom";
+            showsecond = "#afterbottom";
+        }
+        else {
+            hidefirst =  "#wrapbottom";
+            showfirst = "#afterbottom";
+            hidesecond = "#wraptop";
+            showsecond = "#aftertop";
+        }
+        $(hidefirst).slideUp(function () {
+            $(showfirst).slideDown();
+            setTimeout(function () {
+                $(hidesecond).slideUp(function () {
+                    $(showsecond).slideDown(function () {
+                        $("#headerq").hide();
+                        $("#againlink").show();
+                    });
+                });
+            }, 1000);
+            
+        });
+    }
+</script>

@@ -31,7 +31,7 @@ p, ul
 page width. Or, you can specify an exact pixel width. */
 .page
 {
-    width: 960px;
+    width: 800px;
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -49,7 +49,7 @@ page width. Or, you can specify an exact pixel width. */
     -moz-border-radius: 15px;
 	border-radius: 15px;
 	border: solid 2px #404040;
-    background-color: #FFF;
+    /*background-color: #FFF;*/
     color: #333333;
     margin: 15px 15px 15px 15px;
     _height: 1px; /* only IE6 applies CSS properties starting with an underscrore */
@@ -72,6 +72,8 @@ page width. Or, you can specify an exact pixel width. */
 
 .apptitle .logo {
     float:left;
+    width: 100px;
+    height: 52px;
 }
 .apptitle .appname {
     float:left;
@@ -89,12 +91,23 @@ page width. Or, you can specify an exact pixel width. */
     
 }
 
+.matchoption {
+    font-size: 1.5em;
+    
+}
+
+.matchoptionarea {
+    cursor: pointer;
+}
+
+
 .spacer {
     height: 40px;
 }
 
-.optionwrap {
+.matchoptionwrap {
     padding: 10px 40px 10px 40px;
+    min-height: 175px;
 }
 
 .footer
@@ -123,8 +136,11 @@ page width. Or, you can specify an exact pixel width. */
 {
 	padding-left:15px;
 }
-	
 
+
+.white {
+    background: #f9f9f9;
+}
 
 .glass
 {
@@ -152,8 +168,15 @@ page width. Or, you can specify an exact pixel width. */
 	border: solid 1px #b9b9b9;*/
 }
 
+.glasstrans {
+    background: #FFF; /* fallback for browser that not support rgba */
+    background: rgba(255,255,255, .5); /* Works on all modern browsers */
+}
 
-
+.highlight {
+    background: #B6FFB2; /* fallback for browser that not support rgba */
+    background: rgba(182,255,178, .5); /* Works on all modern browsers */
+}
 
 
 #qqthrobber

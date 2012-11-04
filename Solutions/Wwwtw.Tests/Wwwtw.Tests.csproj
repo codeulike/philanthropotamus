@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="CharityInfoRepositoryTests.cs" />
     <Compile Include="CharityInfoTests.cs" />
+    <Compile Include="EloRatingTests.cs" />
     <Compile Include="MatchTasksRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceLocatorInitializer.cs" />

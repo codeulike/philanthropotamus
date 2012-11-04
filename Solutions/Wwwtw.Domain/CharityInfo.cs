@@ -3,6 +3,7 @@
     using SharpArch.Domain.DomainModel;
     using System.ComponentModel.DataAnnotations;
     using System.Text.RegularExpressions;
+    using System.Globalization;
 
     public class CharityInfo : Entity
     {
@@ -32,6 +33,15 @@
                 return r.Replace(lowerCase, s => s.Value.ToUpper());
             }
 
+        }
+
+        public virtual string CharityNameTitleCase
+        {
+            get
+            {
+                TextInfo ti =  new CultureInfo("EN-gb", false).TextInfo;
+                return ti.ToTitleCase(this.CharityName.ToLower());
+            }
         }
 
 

@@ -52,6 +52,23 @@ namespace Wwwtw.Tasks
             return ret;
         }
 
+        public void MatchResult(int winnerId, int loserId)
+        {
+            var winner = charityInfoRepository.Get(winnerId);
+            var loser = charityInfoRepository.Get(loserId);
+
+            var elo = new EloRating(winner.GameScore, loser.GameScore, 400, 0);
+
+            winner.GameScore = Convert.ToInt32( Math.Round(elo.FinalResult1));
+            loser.GameScore = Convert.ToInt32(Math.Round(elo.FinalResult2));
+
+            charityInfoRepository.SaveOrUpdate(winner);
+            charityInfoRepository.SaveOrUpdate(loser);
+            charityInfoRepository.DbContext.CommitChanges();
+
+
+        }
+
         public CharityInfo FetchUntilNot(int notId, int minId, int maxId)
         {
             int tries = 0;
