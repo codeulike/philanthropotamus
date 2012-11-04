@@ -14,11 +14,15 @@
 
         public virtual string Activities { get; set; }
 
+        public virtual string ActivitiesAnon { get; set; }
+
         public virtual string Website { get; set; }
 
         public virtual string TwitterAccount { get; set; }
 
         public virtual int GameScore { get; set; }
+
+        public virtual int NoOfWins { get; set; }
 
         public virtual string ActivitiesSentenceCase
         {

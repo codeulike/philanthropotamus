@@ -62,6 +62,8 @@ namespace Wwwtw.Tasks
             winner.GameScore = Convert.ToInt32( Math.Round(elo.FinalResult1));
             loser.GameScore = Convert.ToInt32(Math.Round(elo.FinalResult2));
 
+            winner.NoOfWins += 1;
+
             charityInfoRepository.SaveOrUpdate(winner);
             charityInfoRepository.SaveOrUpdate(loser);
             charityInfoRepository.DbContext.CommitChanges();
