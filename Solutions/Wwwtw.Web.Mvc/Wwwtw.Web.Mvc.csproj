@@ -153,6 +153,7 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="CastleWindsor\ComponentRegistrar.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\CharityInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RouteRegistrar.cs" />
@@ -207,6 +208,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\CharityInfo\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\About\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
