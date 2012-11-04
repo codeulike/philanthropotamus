@@ -26,6 +26,7 @@
     using SharpArch.NHibernate.Web.Mvc;
     using SharpArch.Web.Mvc.Castle;
     using SharpArch.Web.Mvc.ModelBinder;
+    using System.Web;
     
 
     /// <summary>
@@ -55,6 +56,8 @@
         {
             NHibernateInitializer.Instance().InitializeNHibernateOnce(this.InitialiseNHibernateSessions);
         }
+
+       
 
         protected void Application_Error(object sender, EventArgs e) 
         {
