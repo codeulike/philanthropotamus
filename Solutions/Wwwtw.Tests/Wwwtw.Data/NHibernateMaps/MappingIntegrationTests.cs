@@ -44,7 +44,7 @@
             NHibernateSession.Reset();
         }
 
-        [Test]
+        //[Test]
         //public void CanConfirmDatabaseMatchesMappings()
         //{
         //    var allClassMetadata = NHibernateSession.GetDefaultSessionFactory().GetAllClassMetadata();
