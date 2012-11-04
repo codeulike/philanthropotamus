@@ -2,7 +2,7 @@
 @model List<Wwwtw.Domain.CharityInfo>
 
 @{
-    ViewBag.Title = "Home";
+    ViewBag.Title = "Philanthropotamus";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -131,5 +131,8 @@
             }, 1000);
             
         });
+
+        // send event to google analytics
+        _gaq.push(['_trackEvent', 'Vote', 'Won: ' + win, 'Lost: ' + lost]);
     }
 </script>
