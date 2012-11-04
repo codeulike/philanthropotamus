@@ -161,8 +161,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\img\sharp_arch.jpg" />
-    <Content Include="Content\img\sharp_arch_small.gif" />
+    <Content Include="Content\img\flyinginabluedream_olivireland_ccbync.jpg" />
+    <Content Include="Content\img\hippologo100g.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\js\jquery-1.6.3-vsdoc.js" />
