@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head id="Head1" runat="server">
@@ -14,33 +14,41 @@
 </head>
 
 <body>
-    <div class="page">
+  <div class="page">
+        <div id="error" style="display: none">There was an error processing your last request</div>
+
+
         <div id="mainContent">
-            <div class="columnsContainer">
-                <div class="leftColumn">
-                    <p>
-                        <img src="../../Content/img/sharp_arch.jpg" />
-                    </p>
-                    <h2>Wwwtw Pages</h2>
-                    <ul>
-                        <li>@(Html.ActionLink<HomeController>(c => c.Index(), "Home"))</li>
-                    </ul>
-                </div>
-                <!--/leftColumn-->
+            <div class="apptitle">
+                <img src="@Url.Content("/Content/img/hippologo100g.png")" class="logo" />
+                <span class="appname">Philanthropotamus</span>
+                <div class="clear"></div>
+            </div>
 
-                <div class="rightColumn">
                     @RenderBody()
-                </div><!--/rightColumn-->
-
-                <div class="clear">
-                </div>
-
-            </div><!--/columnsContainer-->
-
-            <div id="sharpArchLogo"></div>
-
+  <div class="footer">
+            <div class="footerLeft">
+            footerleft
+            </div>
+            <div class="footerRight">
+            footerright
+            </div>
+            <div class="clear"></div>
+        </div>
         </div><!--/mainContent-->
 
     </div><!--/page-->
+<script type="text/javascript">
+$(function(){
+   $("#error").ajaxError(function(){
+      var $error = $(this);
+      $error.slideDown(500, function(){
+          window.setTimeout(function(){
+              $error.slideUp(500);
+          }, 2000);
+      }); 
+   });
+});
+</script>
 </body>
 </html>
