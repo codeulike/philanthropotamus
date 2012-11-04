@@ -45,30 +45,30 @@
         }
 
         [Test]
-        public void CanConfirmDatabaseMatchesMappings()
-        {
-            var allClassMetadata = NHibernateSession.GetDefaultSessionFactory().GetAllClassMetadata();
+        //public void CanConfirmDatabaseMatchesMappings()
+        //{
+        //    var allClassMetadata = NHibernateSession.GetDefaultSessionFactory().GetAllClassMetadata();
 
-            foreach (var entry in allClassMetadata)
-            {
-                NHibernateSession.Current.CreateCriteria(entry.Value.GetMappedClass(EntityMode.Poco))
-                     .SetMaxResults(0).List();
-            }
-        }
+        //    foreach (var entry in allClassMetadata)
+        //    {
+        //        NHibernateSession.Current.CreateCriteria(entry.Value.GetMappedClass(EntityMode.Poco))
+        //             .SetMaxResults(0).List();
+        //    }
+        //}
 
         /// <summary>
         /// Generates and outputs the database schema SQL to the console
         /// </summary>
-        [Test]
-        public void CanGenerateDatabaseSchema()
-        {
-            var session = NHibernateSession.GetDefaultSessionFactory().OpenSession();
+        //[Test]
+        //public void CanGenerateDatabaseSchema()
+        //{
+        //    var session = NHibernateSession.GetDefaultSessionFactory().OpenSession();
 
-            using (TextWriter stringWriter = new StreamWriter("../../../../Database/UnitTestGeneratedSchema.sql"))
-            {
-                new SchemaExport(this.configuration).Execute(true, false, false, session.Connection, stringWriter);
-            }
-        }
+        //    using (TextWriter stringWriter = new StreamWriter("../../../../Database/UnitTestGeneratedSchema.sql"))
+        //    {
+        //        new SchemaExport(this.configuration).Execute(true, false, false, session.Connection, stringWriter);
+        //    }
+        //}
 
         /// <summary>
         /// Creates/Updates database schema, this runs on database configured in 
