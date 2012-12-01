@@ -1,0 +1,27 @@
+﻿@using Wwwtw.Web.Mvc
+@model Wwwtw.Web.Mvc.Controllers.ViewModels.ListIndexView
+@{
+    ViewBag.Title = "Philanthropotamus - List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ <div class="border1"><div class="border2 glasstrans">
+
+    <p>@Html.ActionLink("<< back to main page", "Index","Home")</p>
+     <h2>Philanthropotamus - List</h2>
+    
+     <table class="ranktable">
+         <thead><td>Charity</td><td>Score</td></thead>
+        @foreach(Wwwtw.Domain.CharityInfo ci in Model.CharityInfos)
+        {
+            <tr><td>@ci.CharityName</td><td>@ci.GameScore</td></tr>
+        }
+     </table>
+     
+     @if(Model.IsSubset)
+     {
+      <p>@Html.ActionLink("(Show All)", "ShowAll")</p>   
+     }
+      
+ </div></div>
+   <div class="spacer"></div>

@@ -179,6 +179,10 @@ page width. Or, you can specify an exact pixel width. */
     background: rgba(182,255,178, .5); /* Works on all modern browsers */
 }
 
+.ranktable thead
+{
+	font-weight: bold;
+}
 
 #qqthrobber
 {

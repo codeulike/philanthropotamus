@@ -35,6 +35,11 @@ namespace Wwwtw.Tasks
             }
         }
 
+        public IList<CharityInfo> GetTop(int howmany)
+        {
+            return charityInfoRepository.GetTop(howmany);
+        }
+
         // for testing
         public static void ClearMinMax()
         {

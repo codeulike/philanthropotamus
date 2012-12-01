@@ -23,5 +23,12 @@ namespace Wwwtw.Infrastructure
             return new Tuple<int, int>(min, max);
         }
 
+        public virtual IList<CharityInfo> GetTop(int howmany)
+        {
+            var coll = Session.CreateCriteria<CharityInfo>().AddOrder(new Order("GameScore", false))
+                .SetFirstResult(0).SetMaxResults(howmany);
+            return coll.List<CharityInfo>();
+        }
+
     }
 }
