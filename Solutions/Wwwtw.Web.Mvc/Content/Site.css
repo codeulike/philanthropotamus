@@ -181,7 +181,7 @@ page width. Or, you can specify an exact pixel width. */
 
 .ranktable thead
 {
-	font-weight: bold;
+	font-weight: bold; 
 }
 
 #qqthrobber
